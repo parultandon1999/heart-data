@@ -11,9 +11,9 @@ export function MainLayout({ children }: MainLayoutProps) {
       <div className="min-h-screen flex w-full">
         <AppSidebar />
         <div className="flex-1 flex flex-col relative">
-          <div className="absolute top-3 left-3 z-50">
-            <SidebarTrigger />
-          </div>
+          <header className="sticky top-0 z-50 h-12 flex items-center border-b border-border px-4 bg-background">
+            <SidebarTrigger className="mr-4" />
+          </header>
           <main className="flex-1 overflow-auto">
             {children}
           </main>
