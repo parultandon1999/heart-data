@@ -11,32 +11,32 @@ const experiments: Experiment[] = [
 
 export function ABTestCard() {
   return (
-    <div className="stat-card animate-fade-in">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="section-title">A/B Test Active</h3>
-        <button className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-          All Tests →
+    <div className="stat-card">
+      <div className="flex items-center justify-between mb-3">
+        <h3 className="section-title">A/B Tests</h3>
+        <button className="text-xs text-muted-foreground hover:text-foreground">
+          View all →
         </button>
       </div>
       
-      <div className="space-y-1">
-        <div className="grid grid-cols-3 gap-4 text-xs text-muted-foreground pb-2 border-b border-border">
-          <span>Experiment</span>
-          <span>Status</span>
-          <span>Test</span>
-        </div>
-        
-        {experiments.map((exp, index) => (
-          <div 
-            key={index} 
-            className="grid grid-cols-3 gap-4 py-2 text-sm items-center hover:bg-secondary/50 rounded-md transition-colors px-1"
-          >
-            <span className="font-medium">{exp.name}</span>
-            <span className="badge-active w-fit">{exp.status}</span>
-            <span className="text-muted-foreground">{exp.test}</span>
-          </div>
-        ))}
-      </div>
+      <table className="w-full text-sm">
+        <thead>
+          <tr className="text-xs text-muted-foreground border-b border-border">
+            <th className="text-left font-normal pb-2">Experiment</th>
+            <th className="text-left font-normal pb-2">Status</th>
+            <th className="text-left font-normal pb-2">Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          {experiments.map((exp, index) => (
+            <tr key={index} className="border-b border-border last:border-0">
+              <td className="py-2">{exp.name}</td>
+              <td className="py-2 text-muted-foreground">{exp.status}</td>
+              <td className="py-2 text-muted-foreground">{exp.test}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

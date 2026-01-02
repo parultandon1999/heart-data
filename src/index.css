@@ -112,15 +112,15 @@
 
 @layer utilities {
   .stat-card {
-    @apply bg-card rounded-lg border border-border p-4 shadow-sm transition-shadow hover:shadow-md;
+    @apply bg-card rounded-md border border-border p-4;
   }
 
   .section-title {
-    @apply text-sm font-semibold text-foreground tracking-tight;
+    @apply text-sm font-medium text-foreground;
   }
 
   .stat-value {
-    @apply text-2xl font-bold text-foreground;
+    @apply text-2xl font-semibold text-foreground;
   }
 
   .stat-label {
@@ -128,26 +128,10 @@
   }
 
   .stat-change-positive {
-    @apply text-xs font-medium text-success;
+    @apply text-xs text-success;
   }
 
   .stat-change-negative {
-    @apply text-xs font-medium text-destructive;
-  }
-
-  .badge-active {
-    @apply inline-flex items-center rounded-full bg-success/10 px-2 py-0.5 text-xs font-medium text-success;
-  }
-
-  .badge-review {
-    @apply inline-flex items-center rounded-full bg-warning/10 px-2 py-0.5 text-xs font-medium text-warning;
-  }
-
-  .badge-high {
-    @apply inline-flex items-center rounded-full bg-destructive/10 px-2 py-0.5 text-xs font-medium text-destructive;
-  }
-
-  .badge-moderate {
-    @apply inline-flex items-center rounded-full bg-info/10 px-2 py-0.5 text-xs font-medium text-info;
+    @apply text-xs text-destructive;
   }
 }

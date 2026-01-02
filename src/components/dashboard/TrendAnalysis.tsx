@@ -17,22 +17,12 @@ const trendData = [
 
 export function TrendAnalysis() {
   return (
-    <div className="stat-card animate-fade-in">
-      <h3 className="section-title mb-4">Trend Analysis (Sentiment, Topic Modeling)</h3>
+    <div className="stat-card">
+      <h3 className="section-title mb-3">Trend Analysis</h3>
       
       <div className="h-40">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={trendData}>
-            <defs>
-              <linearGradient id="colorTopics" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="hsl(var(--chart-blue))" stopOpacity={0.3}/>
-                <stop offset="95%" stopColor="hsl(var(--chart-blue))" stopOpacity={0}/>
-              </linearGradient>
-              <linearGradient id="colorSentiment" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="hsl(var(--chart-orange))" stopOpacity={0.3}/>
-                <stop offset="95%" stopColor="hsl(var(--chart-orange))" stopOpacity={0}/>
-              </linearGradient>
-            </defs>
             <XAxis 
               dataKey="name" 
               axisLine={false} 
@@ -48,38 +38,37 @@ export function TrendAnalysis() {
               contentStyle={{ 
                 backgroundColor: 'hsl(var(--card))', 
                 border: '1px solid hsl(var(--border))',
-                borderRadius: '8px',
-                fontSize: '12px'
+                borderRadius: '4px',
+                fontSize: '11px'
               }} 
             />
             <Area 
               type="monotone" 
               dataKey="topics" 
-              stroke="hsl(var(--chart-blue))" 
-              fillOpacity={1} 
-              fill="url(#colorTopics)" 
-              strokeWidth={2}
+              stroke="hsl(var(--foreground))" 
+              fill="hsl(var(--muted))" 
+              strokeWidth={1.5}
             />
             <Area 
               type="monotone" 
               dataKey="sentiment" 
-              stroke="hsl(var(--chart-orange))" 
-              fillOpacity={1} 
-              fill="url(#colorSentiment)" 
-              strokeWidth={2}
+              stroke="hsl(var(--muted-foreground))" 
+              fill="transparent" 
+              strokeWidth={1}
+              strokeDasharray="4 4"
             />
           </AreaChart>
         </ResponsiveContainer>
       </div>
       
-      <div className="flex gap-4 mt-3">
+      <div className="flex gap-4 mt-2">
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-chart-blue" />
-          <span className="text-xs text-muted-foreground">Bonuses</span>
+          <div className="w-3 h-0.5 bg-foreground" />
+          <span className="text-xs text-muted-foreground">Topics</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-chart-orange" />
-          <span className="text-xs text-muted-foreground">Topics</span>
+          <div className="w-3 h-0.5 bg-muted-foreground border-dashed" style={{ borderBottom: '1px dashed' }} />
+          <span className="text-xs text-muted-foreground">Sentiment</span>
         </div>
       </div>
     </div>
