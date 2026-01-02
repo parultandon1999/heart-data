@@ -11,6 +11,8 @@ import { FlaggedContent } from "@/components/dashboard/FlaggedContent";
 import { TeamCollaboration } from "@/components/dashboard/TeamCollaboration";
 import { DataScienceNewsFeed } from "@/components/dashboard/DataScienceNewsFeed";
 import { TopicWiseNews } from "@/components/dashboard/TopicWiseNews";
+import { NewsSearchFilter } from "@/components/dashboard/NewsSearchFilter";
+import { TrendingPanel } from "@/components/dashboard/TrendingPanel";
 
 const Index = () => {
   return (
@@ -65,9 +67,17 @@ const Index = () => {
         {/* Live News & Trending Topics Section */}
         <section className="mb-6">
           <h2 className="section-title text-muted-foreground mb-4">Live Data Science & AI News</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          
+          {/* Search & Filter Bar */}
+          <NewsSearchFilter 
+            onSearch={(query) => console.log("Search:", query)} 
+            onFilterChange={(filters) => console.log("Filters:", filters)} 
+          />
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <DataScienceNewsFeed />
             <TopicWiseNews />
+            <TrendingPanel />
           </div>
         </section>
         
