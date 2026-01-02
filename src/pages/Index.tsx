@@ -9,6 +9,8 @@ import { TrendAnalysis } from "@/components/dashboard/TrendAnalysis";
 import { PipelineHealth } from "@/components/dashboard/PipelineHealth";
 import { FlaggedContent } from "@/components/dashboard/FlaggedContent";
 import { TeamCollaboration } from "@/components/dashboard/TeamCollaboration";
+import { DataScienceNewsFeed } from "@/components/dashboard/DataScienceNewsFeed";
+import { TrendingTopicsChart } from "@/components/dashboard/TrendingTopicsChart";
 
 const Index = () => {
   return (
@@ -58,6 +60,15 @@ const Index = () => {
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
           <ModelPerformanceChart />
           <ABTestCard />
+        </section>
+
+        {/* Live News & Trending Topics Section */}
+        <section className="mb-6">
+          <h2 className="section-title text-muted-foreground mb-4">Live Data Science & AI News</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <DataScienceNewsFeed />
+            <TrendingTopicsChart />
+          </div>
         </section>
         
         {/* Data Science Content Section */}
