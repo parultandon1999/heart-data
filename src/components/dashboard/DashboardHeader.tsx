@@ -1,7 +1,22 @@
-import { Calendar, Download, BarChart3 } from "lucide-react";
+import { useState } from "react";
+import { Calendar, Download, BarChart3, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export function DashboardHeader() {
+  const [timeRange, setTimeRange] = useState("today");
+
+  const handleFetch = () => {
+    console.log(`Fetching news for: ${timeRange}`);
+    // Add fetch logic here
+  };
+
   return (
     <header className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 animate-fade-in">
       <div className="flex items-center gap-3">
@@ -14,10 +29,21 @@ export function DashboardHeader() {
         </div>
       </div>
       
-      <div className="flex items-center gap-3">
-        <Button variant="outline" size="sm" className="gap-2">
-          <Calendar className="h-4 w-4" />
-          Today
+      <div className="flex items-center gap-2 sm:gap-3">
+        <Select value={timeRange} onValueChange={setTimeRange}>
+          <SelectTrigger className="w-[120px] h-9">
+            <Calendar className="h-4 w-4 mr-2" />
+            <SelectValue placeholder="Select time" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="today">Today</SelectItem>
+            <SelectItem value="7days">7 Days</SelectItem>
+            <SelectItem value="30days">30 Days</SelectItem>
+          </SelectContent>
+        </Select>
+        <Button variant="outline" size="sm" className="gap-2" onClick={handleFetch}>
+          <RefreshCw className="h-4 w-4" />
+          Fetch
         </Button>
         <Button size="sm" className="gap-2">
           <Download className="h-4 w-4" />
