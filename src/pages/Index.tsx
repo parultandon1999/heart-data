@@ -10,7 +10,7 @@ import { PipelineHealth } from "@/components/dashboard/PipelineHealth";
 import { FlaggedContent } from "@/components/dashboard/FlaggedContent";
 import { TeamCollaboration } from "@/components/dashboard/TeamCollaboration";
 import { DataScienceNewsFeed } from "@/components/dashboard/DataScienceNewsFeed";
-import { TrendingTopicsChart } from "@/components/dashboard/TrendingTopicsChart";
+import { TopicWiseNews } from "@/components/dashboard/TopicWiseNews";
 
 const Index = () => {
   return (
@@ -67,7 +67,7 @@ const Index = () => {
           <h2 className="section-title text-muted-foreground mb-4">Live Data Science & AI News</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <DataScienceNewsFeed />
-            <TrendingTopicsChart />
+            <TopicWiseNews />
           </div>
         </section>
         
