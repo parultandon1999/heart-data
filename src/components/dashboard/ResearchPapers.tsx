@@ -13,19 +13,17 @@ const papers: Paper[] = [
 
 export function ResearchPapers() {
   return (
-    <div className="stat-card animate-fade-in">
+    <div className="stat-card">
       <h3 className="section-title mb-3">AI Research Papers</h3>
       
-      <div className="space-y-2">
+      <div className="space-y-1">
         {papers.map((paper, index) => (
           <div 
             key={index} 
-            className="flex items-center justify-between py-1.5 hover:bg-secondary/50 rounded-md px-2 -mx-2 transition-colors cursor-pointer"
+            className="flex items-center justify-between py-1.5 hover:bg-muted/50 rounded px-2 -mx-2 cursor-pointer"
           >
             <span className="text-sm truncate flex-1 mr-2">{paper.title}</span>
-            <span className={paper.status === "High" ? "badge-high" : "badge-review"}>
-              {paper.status}
-            </span>
+            <span className="text-xs text-muted-foreground">{paper.status}</span>
           </div>
         ))}
       </div>

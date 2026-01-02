@@ -1,5 +1,4 @@
-import { ExternalLink, Clock } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { ExternalLink } from "lucide-react";
 
 const newsItems = [
   {
@@ -46,60 +45,25 @@ const newsItems = [
   },
 ];
 
-const tagColors: Record<string, string> = {
-  AI: "bg-chart-blue/20 text-chart-blue border-chart-blue/30",
-  ML: "bg-chart-orange/20 text-chart-orange border-chart-orange/30",
-  NLP: "bg-chart-green/20 text-chart-green border-chart-green/30",
-  LLM: "bg-primary/20 text-primary border-primary/30",
-  Career: "bg-chart-purple/20 text-chart-purple border-chart-purple/30",
-  CV: "bg-info/20 text-info border-info/30",
-  MLOps: "bg-warning/20 text-warning border-warning/30",
-  Engineering: "bg-muted-foreground/20 text-muted-foreground border-muted-foreground/30",
-};
-
 export function DataScienceNewsFeed() {
   return (
-    <div className="stat-card animate-fade-in">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="section-title">Latest Data Science & AI News</h3>
-        <Badge variant="outline" className="text-xs">
-          Live Feed
-        </Badge>
-      </div>
+    <div className="stat-card">
+      <h3 className="section-title mb-3">Latest News</h3>
 
-      <div className="space-y-3 max-h-[400px] overflow-y-auto pr-2">
+      <div className="space-y-1 max-h-[360px] overflow-y-auto">
         {newsItems.map((item, index) => (
           <a
             key={index}
             href={item.url}
-            className="block p-3 rounded-lg border border-border/50 bg-card/50 hover:bg-accent/50 transition-colors group"
+            className="flex items-center justify-between py-2 px-2 -mx-2 rounded hover:bg-muted/50 group"
           >
-            <div className="flex items-start justify-between gap-2">
-              <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                {item.title}
-              </h4>
-              <ExternalLink className="h-3.5 w-3.5 text-muted-foreground shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="flex-1 min-w-0 mr-3">
+              <p className="text-sm text-foreground truncate">{item.title}</p>
+              <p className="text-xs text-muted-foreground mt-0.5">
+                {item.source} · {item.time}
+              </p>
             </div>
-
-            <div className="flex items-center gap-2 mt-2 text-xs text-muted-foreground">
-              <span className="font-medium">{item.source}</span>
-              <span>•</span>
-              <div className="flex items-center gap-1">
-                <Clock className="h-3 w-3" />
-                {item.time}
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-1.5 mt-2">
-              {item.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className={`px-2 py-0.5 text-xs rounded-full border ${tagColors[tag] || "bg-muted text-muted-foreground"}`}
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <ExternalLink className="h-3.5 w-3.5 text-muted-foreground shrink-0 opacity-0 group-hover:opacity-100" />
           </a>
         ))}
       </div>

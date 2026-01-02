@@ -16,16 +16,16 @@ const weekDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 export function ConferenceDeadlines() {
   return (
-    <div className="stat-card animate-fade-in">
+    <div className="stat-card">
       <h3 className="section-title mb-3">Conference Deadlines</h3>
       
       <div className="overflow-x-auto">
         <table className="w-full text-xs">
           <thead>
             <tr>
-              <th className="text-left font-medium text-muted-foreground pb-2 pr-2"></th>
+              <th className="text-left font-normal text-muted-foreground pb-2 pr-2"></th>
               {weekDays.map(day => (
-                <th key={day} className="text-center font-medium text-muted-foreground pb-2 px-1 w-7">
+                <th key={day} className="text-center font-normal text-muted-foreground pb-2 px-1 w-7">
                   {day}
                 </th>
               ))}
@@ -33,17 +33,17 @@ export function ConferenceDeadlines() {
           </thead>
           <tbody>
             {conferences.map((conf, index) => (
-              <tr key={index} className="hover:bg-secondary/30 transition-colors">
-                <td className="py-1.5 pr-2 truncate max-w-[100px]" title={conf.name}>
+              <tr key={index}>
+                <td className="py-1.5 pr-2 truncate max-w-[100px] text-muted-foreground" title={conf.name}>
                   {conf.name}
                 </td>
                 {conf.days.map((day, dayIndex) => (
                   <td key={dayIndex} className="text-center py-1.5 px-1">
                     <span 
-                      className={`inline-flex items-center justify-center w-6 h-6 rounded-full text-xs transition-colors ${
+                      className={`inline-flex items-center justify-center w-6 h-6 rounded text-xs ${
                         conf.highlight === day 
-                          ? "bg-primary text-primary-foreground" 
-                          : "hover:bg-secondary"
+                          ? "bg-foreground text-background" 
+                          : ""
                       }`}
                     >
                       {day}
